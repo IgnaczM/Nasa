@@ -20,6 +20,7 @@ namespace Nasa
             f4();
             f5();
             f6();
+            f7();
         }
 
         List<adatok> log = new List<adatok>();
@@ -44,10 +45,19 @@ namespace Nasa
                 Console.WriteLine(log[i].ByteMeret());
             }
 
+        }
 
-            Console.WriteLine(log[0].domain);
-            Console.WriteLine(log[0].Domain);
-
+        void f7()
+        {
+            int db = 0;
+            for (int i = 0; i < log.Count; i++)
+            {
+                if (log[i].Domain())
+                {
+                    db++;
+                }
+            }
+            Console.WriteLine("8.feladat: Domain-es kérések: {0:0.00%}", (double)db/log.Count);
         }
     }
                                                           
@@ -84,19 +94,19 @@ namespace Nasa
             return meret;
         }
 
-        public bool domain()
+        public bool Domain()
         {
             //try
             //{
-             //   Console.WriteLine(Convert.ToInt32(domain[domain.Length -1]));
+            //   Console.WriteLine(Convert.ToInt32(domain[domain.Length -1]));
             //}
             //catch (Exception)
             //{
 
-              //  throw;
+            //  throw;
             //}
 
-            
+            return domain[domain.Length - 1] > '9' || domain[domain.Length - 1] < '0';
         }
     }
 }
