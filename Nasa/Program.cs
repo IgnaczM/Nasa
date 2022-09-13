@@ -1,4 +1,4 @@
-﻿using System;
+using System;
 using System.Collections.Generic;
 using System.IO;
 
@@ -18,6 +18,8 @@ namespace Nasa
         public feladat()
         {
             f4();
+            f5();
+            f6();
         }
 
         List<adatok> log = new List<adatok>();
@@ -28,6 +30,24 @@ namespace Nasa
             {
                 log.Add(new adatok(sorok[i]));
             }
+        }
+
+        void f5()
+        {
+            Console.WriteLine("5.feladat: Kérések száma: {0}", log.Count);
+        }
+
+        void f6()
+        {
+            for (int i = 0; i < log.Count; i++)
+            {
+                Console.WriteLine(log[i].ByteMeret());
+            }
+
+
+            Console.WriteLine(log[0].domain);
+            Console.WriteLine(log[0].Domain);
+
         }
     }
                                                           
@@ -40,7 +60,7 @@ namespace Nasa
         public int meret;
         public adatok(string sor)
         {
-            //rn3.swc.com*20/Jul/1995:12:55:04*GET /images/small.jpg*200 46573 
+         
             string[] vag = sor.Split("*");
             domain = vag[0];
             datum = vag[1];
@@ -56,6 +76,26 @@ namespace Nasa
             {
                 meret = Convert.ToInt32(vag2[1]);
             }
+            
+        }
+
+        public int ByteMeret()
+        {
+            return meret;
+        }
+
+        public bool domain()
+        {
+            //try
+            //{
+             //   Console.WriteLine(Convert.ToInt32(domain[domain.Length -1]));
+            //}
+            //catch (Exception)
+            //{
+
+              //  throw;
+            //}
+
             
         }
     }
